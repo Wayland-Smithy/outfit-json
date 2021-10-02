@@ -46,6 +46,9 @@ $(function () {
   $('#code-out').on('click', function () {
     $(this).select();
   });
+  $('.disc-tag').on('click', function () {
+    $(this).select();
+  });
 
   // edit events: update output
   $('.chosen-select').on('change', regenJSON);
