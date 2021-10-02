@@ -1,18 +1,21 @@
 var slot_list = [];
 
 function regenJSON() {
-  let drip = {
-    outfit_type: '/datum/outfit',
-    name: ($('#name').val() ? $('#name').val() : '')
+
+  let team = {
+    name: ($('#name').val() ? $('#name').val() : ''),
+    roster: ($('#roster').val() ? $('#roster').val().split(',') : []),
+    toolbox_color: $('#toolbox_color').val(),
+    outfit: {}
   };
 
   for (const slot of slot_list) {
     if ($(`#${slot}`).val()) {
-      drip[slot] = $(`#${slot}`).val();
+      team.outfit[slot] = $(`#${slot}`).val();
     }
   }
 
-  $('#code-out').val(JSON.stringify(drip, null, 2));
+  $('#code-out').val("```json\n" + JSON.stringify(team, null, 4) + "\n```");
 }
 
 function apiRequest(type, path, params, callback) {
@@ -64,6 +67,7 @@ $(function () {
 
   // set defaults
   $('#uniform').val('/obj/item/clothing/under/color/grey');
+  $('#shoes').val('/obj/item/clothing/shoes/sneakers/black');
 
   // init the form selects and output
   $('.chosen-select').chosen({ allow_single_deselect: true });

@@ -46,7 +46,7 @@ li > p { margin-top: .25em; }
 
 div.side-by-side { width: 100%; margin-bottom: 1em; }
 div.side-by-side > div { float: left; width: 49%; }
-div.side-by-side > div > em { margin-bottom: 10px; display: block; }
+div.side-by-side > div > em { margin-bottom: 5px; display: block; }
 
 .faqs em { display: block; }
 

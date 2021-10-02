@@ -5,6 +5,20 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="lib/chosen.min.css">
+  <!-- COMMON TAGS -->
+  <meta charset="utf-8">
+  <title>Toolbox Tournament Team Form</title>
+  <!-- Search Engine -->
+  <meta name="description" content="Sign up here to take part in the tournament! No login required!">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Toolbox Tournament Team Form">
+  <meta itemprop="description" content="Sign up here to take part in the tournament! No login required!">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Toolbox Tournament Team Form">
+  <meta name="og:description" content="Sign up here to take part in the tournament! No login required!">
+  <meta name="og:url" content="https://wayland-smithy.github.io/outfit-json/">
+  <meta name="og:site_name" content="Toolbox Tournament Team Form">
+  <meta name="og:type" content="website">
 </head>
 
 <body>
@@ -12,14 +26,20 @@
     <div id="container">
       <div id="content">
         <header>
-          <h1>/tg/station outfit editor .json acquisition tool</h1>
+          <h1>Toolboxing For A Cause Team Form</h1>
         </header>
-        <h2>T.O.E.J.A.T.</h2>
+        <h2>via special edition T.O.E.J.A.T.</h2>
         <div class="side-by-side clearfix">
           <div>
-            <em>Step 1: Pick Accessories - Preview with <a href="https://badger.atlantaned.space/" target="_blank"
-                rel="noopener">BadgeR</a></em>
-            <input placeholder="Outfit Name" id="name" tabindex="1" style="width: 342px;">
+            <em>Step 1: Enter Team Info</em>
+            <input required placeholder="Team name" id="name" tabindex="1" style="width: 342px;" autocomplete="off">
+            <input placeholder="Member ckeys (comma separated)" id="roster" tabindex="1" style="width: 342px;">
+            <label>
+              Toolbox color:
+              <input placeholder="Team name" id="toolbox_color" type="color" value="#1369b5" tabindex="1">
+            </label>
+            <em style="margin-top: 10px;">Optional Step 2: Pick Outfit - Preview with <a
+                href="https://badger.atlantaned.space/" target="_blank" rel="noopener">BadgeR</a></em>
             <select id="head" data-placeholder="Head slot" class="chosen-select" tabindex="2">
               <option value=""></option>
             </select>
@@ -46,8 +66,9 @@
             </select>
           </div>
           <div>
-            <em>Step 2: Get JSON</em>
-            <textarea id="code-out" rows="12" cols="50" wrap="off" style="font-family: monospace;" readonly></textarea>
+            <em>Step 3: Copy & Paste the code block below to <a href="https://discord.com/channels/@me/" target="_blank"
+                rel="noopener">sacko#4649 on Discord</a></em>
+            <textarea id="code-out" rows="18" cols="50" wrap="off" style="font-family: monospace;" readonly></textarea>
           </div>
         </div>
         <footer>
