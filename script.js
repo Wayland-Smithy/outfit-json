@@ -8,7 +8,7 @@ function regenJSON() {
 
   for (const slot of slot_list) {
     if ($(`#${slot}`).val()) {
-      drip[slot] = $(`#${slot}`).val()
+      drip[slot] = $(`#${slot}`).val();
     }
   }
 
@@ -29,10 +29,24 @@ function apiRequest(type, path, params, callback) {
 }
 
 $(function () {
-  // highlight all text on click for easy copy
+  // update the relative time diff in the footer
+  apiRequest('repos',
+    'Wayland-Smithy/outfit-json/commits',
+    'path=/outfit_options&per_page=1',
+    (res) => {
+      let data = JSON.parse(res);
+      $('#update-time').text(dateFns.distanceInWordsToNow(data[0].commit.committer.date));
+    }
+  );
+
+  // click event: highlight all text for easy copy
   $('#code-out').on('click', function () {
     $(this).select();
   });
+
+  // edit events: update output
+  $('.chosen-select').on('change', regenJSON);
+  $('input').on('input', regenJSON);
 
   // generate slot names array from select ids
   $('.chosen-select').each(function () {
@@ -54,11 +68,4 @@ $(function () {
   // init the form selects and output
   $('.chosen-select').chosen({ allow_single_deselect: true });
   regenJSON();
-  apiRequest('repos',
-    'Wayland-Smithy/outfit-json/commits',
-    'path=/outfit_options&per_page=1',
-    (res) => {
-      let data = JSON.parse(res);
-      $('#update-time').text(dateFns.distanceInWordsToNow(data[0].commit.committer.date));
-    });
 });
