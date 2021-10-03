@@ -4,7 +4,7 @@ function regenJSON() {
 
   let team = {
     name: ($('#name').val() ? $('#name').val() : ''),
-    roster: ($('#roster').val() ? $('#roster').val().split(',') : []),
+    roster: ($('#roster').val() ? $('#roster').val().split(',').map(ckey => ckey.trim()) : []),
     toolbox_color: $('#toolbox_color').val(),
     outfit: {}
   };
