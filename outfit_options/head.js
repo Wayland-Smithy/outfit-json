@@ -14,7 +14,7 @@ outfit_options["head"] = {
   "/obj/item/clothing/head/helmet/plate/crusader/prophet/blue": "Prophet's Hat [prophet-blue]",
   "/obj/item/clothing/head/helmet/plate/crusader/prophet": "Prophet's Hat []",
   "/obj/item/clothing/head/helmet/plate/crusader": "Crusader's Hood [crusader]",
-  "/obj/item/clothing/head/helmet/plate": "helmet [helmet]",
+  "/obj/item/clothing/head/helmet/plate": "helmet [plate]",
   "/obj/item/clothing/head/helmet/abductor": "agent headgear [alienhelmet]",
   "/obj/item/clothing/head/helmet/space/changeling": "flesh mass [lingspacehelmet]",
   "/obj/item/clothing/head/helmet/space/hardsuit/cult": "Nar'Sien hardened helmet [cult_helmet]",
