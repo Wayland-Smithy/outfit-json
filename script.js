@@ -16,6 +16,7 @@ function regenJSON() {
   }
 
   $('#code-out').val("```json\n" + JSON.stringify(team, null, 4) + "\n```");
+  $('#color-warn').html((team.toolbox_color === '#000000') ? '⚠<br><i>Pitch black toolbox color is not recommended, and may be adjusted by event staff later.</i>' : '');
 }
 
 function apiRequest(type, path, params, callback) {
@@ -43,10 +44,7 @@ $(function () {
   );
 
   // click event: highlight all text for easy copy
-  $('#code-out').on('click', function () {
-    $(this).select();
-  });
-  $('.disc-tag').on('click', function () {
+  $('#code-out, .disc-tag').on('click', function () {
     $(this).select();
   });
 
