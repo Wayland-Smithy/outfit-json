@@ -1,7 +1,6 @@
 var slot_list = [];
 
-function regenJSON() {
-
+function regenJSON(event) {
   let team = {
     name: ($('#name').val() ? $('#name').val() : ''),
     roster: ($('#roster').val() ? $('#roster').val().split(',').map(ckey => ckey.trim()) : []),
@@ -17,6 +16,14 @@ function regenJSON() {
 
   $('#code-out').val("```json\n" + JSON.stringify(team, null, 4) + "\n```");
   $('#color-warn').html((team.toolbox_color === '#000000') ? '⚠<br><i>Pitch black toolbox color is not recommended, and may be adjusted by event staff later.</i>' : '');
+  if (event) {
+    $('#toolbox_color_2').val($('#toolbox_color').val());
+  }
+}
+
+function updateColor2() {
+  $('#toolbox_color').val($('#toolbox_color_2').val());
+  regenJSON();
 }
 
 function apiRequest(type, path, params, callback) {
@@ -50,7 +57,8 @@ $(function () {
 
   // edit events: update output
   $('.chosen-select').on('change', regenJSON);
-  $('input').on('input', regenJSON);
+  $('input').not('#toolbox_color_2').on('input', regenJSON);
+  $('#toolbox_color_2').on('input', updateColor2);
 
   // generate slot names array from select ids
   $('.chosen-select').each(function () {
@@ -72,5 +80,5 @@ $(function () {
 
   // init the form selects and output
   $('.chosen-select').chosen({ allow_single_deselect: true });
-  regenJSON();
+  regenJSON(true);
 });
